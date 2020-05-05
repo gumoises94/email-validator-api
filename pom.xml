@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>email-validator-api</name>
-	<description>An API for validation an e-mail address</description>
+	<description>An API to validate an e-mail address</description>
 
 	<properties>
 		<java.version>1.8</java.version>
