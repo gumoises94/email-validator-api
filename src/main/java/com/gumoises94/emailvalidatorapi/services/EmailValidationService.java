@@ -40,13 +40,16 @@ public class EmailValidationService {
 					model.setIsCompanyDomain(true);
 					model.setValidationStatus(ValidationStatus.VALID);
 				}
+				else {
+					model.setMessage("Invalid domain: " + domain + ".");
+				}
 			}
 			else {
-				model.setMessage("Please insert a valid email. E.g. example@email.com");
+				model.setMessage("Please insert a valid email. E.g. example@email.com.");
 			}
 		}
 		else {
-			model.setMessage("The email must not be empty");
+			model.setMessage("The email must not be empty.");
 		}
 		
 		return model;
