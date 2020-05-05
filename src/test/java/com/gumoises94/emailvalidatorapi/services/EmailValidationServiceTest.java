@@ -7,7 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.gumoises94.emailvalidatorapi.enumerations.ValidationStatus;
 import com.gumoises94.emailvalidatorapi.models.EmailValidationModel;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +16,8 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
+
+import static com.gumoises94.emailvalidatorapi.utils.TestUtils.*;
 
 
 import java.text.ParseException;
@@ -32,35 +33,6 @@ public class EmailValidationServiceTest {
 	@InjectMocks
 	private EmailValidationService emailValidationService;
 	
-	private EmailValidationModel buildValidPublicDomainEmailModel() {
-		return EmailValidationModel.builder()
-				.email("example@gmail.com")
-				.isPublicDomain(true)
-				.isCompanyDomain(false)
-				.message(null)
-				.validationStatus(ValidationStatus.VALID)
-				.build();
-	}
-	
-	private EmailValidationModel buildValidCompanyDomainEmailModel() {
-		return EmailValidationModel.builder()
-				.email("example@ibm.com")
-				.isPublicDomain(false)
-				.isCompanyDomain(true)
-				.message(null)
-				.validationStatus(ValidationStatus.VALID)
-				.build();
-	}
-	
-	private EmailValidationModel buildInvalidEmailModel(String email, String expectedMessage) {
-		return EmailValidationModel.builder()
-				.email(email)
-				.isPublicDomain(false)
-				.isCompanyDomain(false)
-				.message(expectedMessage)
-				.validationStatus(ValidationStatus.INVALID)
-				.build();
-	}
 	
 	@Test
 	public void whenValidateEmailPublicDomain_thenValid() throws ParseException {
