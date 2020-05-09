@@ -41,11 +41,11 @@ public class EmailValidationService {
 					model.setValidationStatus(ValidationStatus.VALID);
 				}
 				else {
-					model.setMessage("Invalid domain: " + domain + ".");
+					model.setMessage("Invalid domain: " + domain);
 				}
 			}
 			else {
-				model.setMessage("Please insert a valid email. E.g. example@email.com.");
+				model.setMessage("Please insert a valid email. E.g. example@email.com");
 			}
 		}
 		else {

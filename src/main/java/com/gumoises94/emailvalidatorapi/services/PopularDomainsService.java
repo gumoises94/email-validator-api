@@ -72,7 +72,7 @@ public class PopularDomainsService {
 	
 	public boolean isPublicDomain(String domain) {
 		if(domain != null)
-			return this.POPULAR_EMAIL_DOMAINS_LIST.contains(domain);
+			return this.POPULAR_EMAIL_DOMAINS_LIST.contains(domain.toLowerCase());
 		
 		return false;
 	}

@@ -68,7 +68,7 @@ public class EmailValidationServiceTest {
 	public void whenValidateEmailWithInvalidDomain_thenInvalid() throws ParseException {
 		String email = "example@somedomainthatdoesntexist.com";
 		String domain = email.substring(email.lastIndexOf("@") + 1);
-		EmailValidationModel model = buildInvalidEmailModel(email, "Invalid domain: " + domain + ".");
+		EmailValidationModel model = buildInvalidEmailModel(email, "Invalid domain: " + domain);
 		
 		
 		when(popularDomainsService.isPublicDomain(domain)).thenReturn(false);
@@ -102,7 +102,7 @@ public class EmailValidationServiceTest {
 	@Test
 	public void whenValidateEmailWithInvalidEmail_thenInvalid() throws ParseException {
 		EmailValidationModel model = buildInvalidEmailModel("a.b@test", 
-				"Please insert a valid email. E.g. example@email.com.");
+				"Please insert a valid email. E.g. example@email.com");
 		
 		EmailValidationModel resultModel = emailValidationService.validate("a.b@test");
 		
